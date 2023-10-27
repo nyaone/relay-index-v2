@@ -339,9 +339,9 @@ const InstancesTable = () => {
     // Load domains.json
     let instanceStatusList;
     try {
-      instanceStatusList = await fetch("./domains.json").then((res) =>
-        res.json(),
-      );
+      instanceStatusList = await fetch(
+        `./domains.json?ts=${new Date().getTime()}`,
+      ).then((res) => res.json());
 
       if (manualRefresh) {
         toast.success("实例列表拉取成功，正在更新...");
