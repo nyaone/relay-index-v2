@@ -101,7 +101,7 @@ const MethodCard = ({
 
 const Join = () => (
   <div id="join" className="isolate overflow-hidden">
-    <div className="mx-auto max-w-7xl px-6 pb-96 pt-20 text-center lg:px-8">
+    <div className="mx-auto max-w-7xl px-6 pb-96 pt-24 text-center lg:px-8 lg:pt-40">
       <div className="mx-auto max-w-4xl">
         <span className="text-base font-semibold leading-7 text-primary">
           Join Us
