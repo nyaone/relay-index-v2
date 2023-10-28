@@ -1,27 +1,9 @@
-# React + TypeScript + Vite
+# 喵家中继 - 首页v2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+这里是使用 React + TypeScript + Vite 开发的第二版[喵家中继](https://relay.nya.one)首页。
 
-Currently, two official plugins are available:
+您可以自行调整以应用在您的中继实例上，请记得在 FAQ 区域标出该项目仓库的原始链接就可以。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+需要配合数据生成后端 Relay Domain Checker 使用。
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+有任何问题欢迎随时联系我们。
