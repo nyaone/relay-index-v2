@@ -3,7 +3,7 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import { PlusIcon } from "@heroicons/react/24/outline";
+import { InformationCircleIcon, PlusIcon } from "@heroicons/react/24/outline";
 import {
   CheckCircleIcon,
   ExclamationCircleIcon,
@@ -206,9 +206,12 @@ const FAQ = () => {
                   <>
                     <dt>
                       <DisclosureButton className="flex w-full items-start justify-between text-left text-gray-900 dark:text-gray-100 cursor-pointer">
-                        <span className="text-base font-semibold leading-7">
-                          {faq.question}
-                        </span>
+                        <div className="flex flex-row gap-2 items-center">
+                          <InformationCircleIcon className="h-6 w-6 text-primary" />
+                          <span className="text-base font-semibold leading-7">
+                            {faq.question}
+                          </span>
+                        </div>
                         <span className="ml-6 flex h-7 items-center">
                           <PlusIcon
                             className={`h-6 w-6 transition-transform duration-300 ${
@@ -224,7 +227,7 @@ const FAQ = () => {
                       transition
                       className="pr-12 pt-2 transition duration-300 ease-in-out data-closed:opacity-0"
                     >
-                      <p className="text-base leading-7 text-gray-600 dark:text-gray-200">
+                      <p className="text-base leading-7 text-gray-600 dark:text-gray-200 ml-8">
                         {faq.answer}
                       </p>
                     </DisclosurePanel>
