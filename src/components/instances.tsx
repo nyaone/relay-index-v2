@@ -89,7 +89,7 @@ const VisibilityToggle = ({
 }: VisibilityToggleProps) => (
   <button
     type="button"
-    className={`flex rounded-full p-2 text-center text-white shadow-sm transition-colors duration-300 ${
+    className={`flex rounded-full p-2 text-center text-white shadow-xs transition-colors duration-300 ${
       isVisible ? color.visible : color.invisible
     }`}
     onClick={() => {
@@ -154,7 +154,7 @@ const ControlButtons = ({
     </div>
     <button
       type="button"
-      className="block rounded-md bg-primary p-3 text-center text-white shadow-sm hover:bg-sky-500 transition-colors duration-300"
+      className="block rounded-md bg-primary p-3 text-center text-white shadow-xs hover:bg-sky-500 transition-colors duration-300"
       onClick={() => {
         loadInstanceList(true);
       }}
@@ -256,7 +256,7 @@ const InstanceTableBody = ({ instanceList }: InstanceTableBodyProps) => (
         <td className={`pl-4 pr-3 font-medium sm:pl-6 ${trCommonStyle}`}>
           {/*实例*/}
           <div className="flex flex-row gap-2 items-center">
-            {/*<div className="w-6 h-6 flex-shrink-0">*/}
+            {/*<div className="w-6 h-6 shrink-0">*/}
             {/*  <img className="w-6 h-6" src={`https://${instance.domain}/favicon.ico`} alt={instance.domain} />*/}
             {/*</div>*/}
             <div>
