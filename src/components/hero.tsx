@@ -30,18 +30,18 @@ const Hero = () => (
     />
     <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
       <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-        <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+        <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 dark:text-gray-200 ring-1 ring-gray-900/10 dark:ring-gray-200/10 hover:ring-gray-900/20 dark:hover:ring-gray-200/20 transition-all duration-300">
           Relay.Nya.One
         </div>
       </div>
       <div className="text-center">
-        <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl">
+        <h1 className="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-7xl">
           喵家中继
         </h1>
-        <p className="mt-6 text-lg leading-8 text-gray-600">
+        <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-200">
           这里是来自喵喵们的电波！
           <span
-            className="rounded px-2 py-0.5 hover:bg-sky-100 hover:text-gray-400 transition-colors duration-300 cursor-pointer select-none"
+            className="rounded px-2 py-0.5 hover:bg-sky-300/10 transition-colors duration-300 cursor-pointer select-none"
             onClick={() => {
               toast.success("喵～", { icon: "❤" });
             }}
@@ -58,7 +58,7 @@ const Hero = () => (
           </a>
           <a
             href="#instances"
-            className="font-semibold leading-6 text-gray-900"
+            className="font-semibold leading-6 text-gray-900 dark:text-white"
           >
             实例列表 <span aria-hidden="true">→</span>
           </a>

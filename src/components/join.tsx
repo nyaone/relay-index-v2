@@ -55,17 +55,19 @@ const MethodCard = ({
   href,
   linkid,
 }: MethodCardProps) => (
-  <div className="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10">
+  <div className="flex flex-col justify-between rounded-3xl bg-white dark:bg-neutral-800 p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10">
     <div>
       <div className="mt-4 items-baseline">
         <h3 className="text-5xl font-bold tracking-tight text-primary text-center">
           {name}
         </h3>
       </div>
-      <p className="mt-6 text-base leading-7 text-gray-600">{description}</p>
+      <p className="mt-6 text-base leading-7 text-gray-600 dark:text-gray-200">
+        {description}
+      </p>
       <ul
         role="list"
-        className="mt-10 space-y-4 text-sm leading-6 text-gray-600"
+        className="mt-10 space-y-4 text-sm leading-6 text-gray-600 dark:text-gray-200"
       >
         {flow.map((step, index) => (
           <li key={index} className="flex gap-x-3">
@@ -91,7 +93,7 @@ const MethodCard = ({
           });
       }}
       aria-describedby={id}
-      className="mt-8 flex flex-row gap-1 justify-center rounded-md bg-primary px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-xs hover:bg-sky-500 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 transition-colors duration-300"
+      className="mt-8 flex flex-row gap-1 justify-center rounded-md bg-primary px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-xs hover:bg-sky-500 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 transition-colors duration-300 cursor-pointer"
     >
       <LinkIcon className="h-6 w-5 flex" aria-hidden="true" />
       <span>复制 {linkid} 链接</span>
@@ -106,12 +108,12 @@ const Join = () => (
         <span className="text-base font-semibold leading-7 text-primary">
           Join Us
         </span>
-        <h2 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">
+        <h2 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl dark:text-white">
           加入我们
         </h2>
       </div>
     </div>
-    <div className="flow-root bg-white pb-24 sm:pb-32">
+    <div className="flow-root pb-24 sm:pb-32">
       <div className="-mt-80">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">

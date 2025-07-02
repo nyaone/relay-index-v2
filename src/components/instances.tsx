@@ -12,20 +12,20 @@ import { strMaxLen } from "../utils/strMaxLen.ts";
 
 const InstanceTableWrapper = ({ children }: PropsWithChildren) => (
   <div className="flow-root">
-    <div className="shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg max-h-[calc(100vh-20em)] overflow-auto">
-      <table className="min-w-full divide-y divide-gray-300">{children}</table>
+    <div className="shadow sm:rounded-lg max-h-[calc(100vh-20em)] overflow-auto">
+      <table className="min-w-full">{children}</table>
     </div>
   </div>
 );
 
 const commonStyle = "text-left text-sm font-semibold";
 
-const thCommonStyle = `text-gray-900 px-3 py-3.5 whitespace-nowrap ${commonStyle}`;
+const thCommonStyle = `text-gray-900 dark:text-white px-3 py-3.5 whitespace-nowrap ${commonStyle}`;
 const th1Style = `pl-4 pr-3 sm:pl-6 ${thCommonStyle}`;
-const trCommonStyle = `text-gray-500 px-3 py-4 ${commonStyle}`;
+const trCommonStyle = `text-gray-500 dark:text-gray-300 px-3 py-4 ${commonStyle}`;
 
 const InstanceTableHeader = () => (
-  <thead className="bg-gray-100 sticky top-0">
+  <thead className="bg-gray-100 dark:bg-neutral-800 sticky top-0">
     <tr>
       <th scope="col" className={th1Style}>
         实例
@@ -89,7 +89,7 @@ const VisibilityToggle = ({
 }: VisibilityToggleProps) => (
   <button
     type="button"
-    className={`flex rounded-full p-2 text-center text-white shadow-xs transition-colors duration-300 ${
+    className={`flex rounded-full p-2 text-center text-white shadow-xs transition-colors duration-300 cursor-pointer ${
       isVisible ? color.visible : color.invisible
     }`}
     onClick={() => {
@@ -154,7 +154,7 @@ const ControlButtons = ({
     </div>
     <button
       type="button"
-      className="block rounded-md bg-primary p-3 text-center text-white shadow-xs hover:bg-sky-500 transition-colors duration-300"
+      className="block rounded-md bg-primary p-3 text-center text-white shadow-xs hover:bg-sky-500 transition-colors duration-300 cursor-pointer"
       onClick={() => {
         loadInstanceList(true);
       }}
@@ -173,7 +173,7 @@ const InstancesSummaryTime = ({
 }: InstancesSummaryTimeProps) => (
   <div className="mt-2 text-sm flex flex-row items-center gap-1">
     <ClockIcon className="w-5 h-5 text-primary" />
-    <p className="text-gray-600 font-semibold">
+    <p className="text-gray-600 dark:text-gray-200 font-semibold">
       列表每 10 分钟自动更新一次，上次更新为{" "}
       <time title={lastUpdateTime.toString()} className="text-primary">
         {printRoughTime(lastUpdateTime)}
@@ -191,7 +191,7 @@ const InstancesSummaryCounter = ({
 }: InstancesSummaryCounterProps) => (
   <div className="mt-2 text-sm flex flex-row items-center gap-1">
     <SparklesIcon className="w-5 h-5 text-primary" />
-    <p className="text-gray-600 font-semibold">
+    <p className="text-gray-600 dark:text-gray-200 font-semibold">
       当前共有{" "}
       <span className="text-primary">
         {instanceCount.ok + instanceCount.warn + instanceCount.error}
@@ -231,11 +231,11 @@ interface InstanceTableBodyProps {
   instanceList: InstanceInfo[];
 }
 const InstanceTableBody = ({ instanceList }: InstanceTableBodyProps) => (
-  <tbody className="divide-y divide-gray-200">
+  <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
     {instanceList.map((instance) => (
       <tr
         key={instance.domain}
-        className="bg-gray-100 bg-opacity-0 hover:bg-opacity-100 transition-colors duration-300 cursor-pointer"
+        className="bg-gray-100/0 dark:bg-neutral-800/0 hover:bg-gray-100/100 dark:hover:bg-neutral-800/100 transition-colors duration-300 cursor-pointer"
         onClick={() => {
           try {
             navigator.clipboard.writeText(instance.domain);
@@ -263,7 +263,7 @@ const InstanceTableBody = ({ instanceList }: InstanceTableBodyProps) => (
               {instance.name ? (
                 <div className="flex flex-col">
                   <span>{instance.name}</span>
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-gray-400 dark:text-gray-500">
                     {instance.domain}
                   </span>
                 </div>
@@ -298,7 +298,7 @@ const InstanceTableBody = ({ instanceList }: InstanceTableBodyProps) => (
           <span className="capitalize">{instance.software?.name}</span>
           {instance.software?.version && (
             <span
-              className="text-xs text-gray-400"
+              className="text-xs text-gray-400 dark:text-gray-500"
               title={instance.software.version}
             >
               {strMaxLen(instance.software.version, 16)}
@@ -534,7 +534,7 @@ const Instances = () => (
         <span className="text-base font-semibold leading-7 text-primary">
           Instances
         </span>
-        <h2 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">
+        <h2 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl dark:text-white">
           实例列表
         </h2>
       </div>

@@ -1,5 +1,10 @@
 import { useState, Fragment } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import {
+  Dialog,
+  DialogPanel,
+  Transition,
+  TransitionChild,
+} from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
@@ -19,9 +24,9 @@ const MobileMenu = ({
   isMobileMenuOpen,
   setMobileMenuOpen,
 }: MobileMenuProps) => (
-  <Transition.Root show={isMobileMenuOpen} as={Fragment}>
+  <Transition show={isMobileMenuOpen} as={Fragment}>
     <Dialog as="div" className="md:hidden" onClose={setMobileMenuOpen}>
-      <Transition.Child
+      <TransitionChild
         as={Fragment}
         enter="transition-opacity ease-linear duration-300"
         enterFrom="opacity-0"
@@ -31,8 +36,8 @@ const MobileMenu = ({
         leaveTo="opacity-0"
       >
         <div className="fixed inset-0 bg-gray-900/60" />
-      </Transition.Child>
-      <Transition.Child
+      </TransitionChild>
+      <TransitionChild
         as={Fragment}
         enter="transition ease-in-out duration-300 transform"
         enterFrom="translate-x-full"
@@ -41,14 +46,14 @@ const MobileMenu = ({
         leaveFrom="translate-x-0"
         leaveTo="translate-x-full"
       >
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-neutral-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <img className="h-8 w-auto" src={LogoImg} alt="" />
             </a>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-300"
               onClick={() => setMobileMenuOpen(false)}
             >
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -61,7 +66,7 @@ const MobileMenu = ({
                   <a
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -70,10 +75,10 @@ const MobileMenu = ({
               </div>
             </div>
           </div>
-        </Dialog.Panel>
-      </Transition.Child>
+        </DialogPanel>
+      </TransitionChild>
     </Dialog>
-  </Transition.Root>
+  </Transition>
 );
 
 interface MainNavProps {
@@ -92,7 +97,7 @@ const MainNav = ({ setMobileMenuOpen }: MainNavProps) => (
     <div className="flex md:hidden">
       <button
         type="button"
-        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-300"
         onClick={() => setMobileMenuOpen(true)}
       >
         <span className="sr-only">Open main menu</span>
@@ -104,7 +109,7 @@ const MainNav = ({ setMobileMenuOpen }: MainNavProps) => (
         <a
           key={item.name}
           href={item.href}
-          className="text-sm font-semibold leading-6 text-gray-900 px-3 py-0.5 rounded-full border-primary border-2 border-opacity-0 hover:border-opacity-100 transition-colors duration-300"
+          className="text-sm font-semibold leading-6 text-gray-900 dark:text-white px-3 py-0.5 rounded-full border-2 border-primary/0 hover:border-primary/100 transition-colors duration-300"
         >
           {item.name}
         </a>
@@ -117,7 +122,7 @@ const MainNav = ({ setMobileMenuOpen }: MainNavProps) => (
 const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-white bg-opacity-80 hover:bg-opacity-100 transition-colors duration-300">
+    <header className="fixed inset-x-0 top-0 z-50 bg-white/60 dark:bg-neutral-800/60 hover:bg-white/100 dark:hover:bg-neutral-800/100 backdrop-blur-md transition-colors duration-300">
       <MainNav setMobileMenuOpen={setMobileMenuOpen} />
       <MobileMenu
         isMobileMenuOpen={isMobileMenuOpen}

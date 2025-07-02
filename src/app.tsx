@@ -7,7 +7,7 @@ import Footer from "./components/footer.tsx";
 import { Toaster } from "react-hot-toast";
 
 const App = () => (
-  <>
+  <div className="dark:bg-neutral-900">
     <Header />
 
     <Hero />
@@ -17,7 +17,7 @@ const App = () => (
 
     <Footer />
     <Toaster />
-  </>
+  </div>
 );
 
 export default App;

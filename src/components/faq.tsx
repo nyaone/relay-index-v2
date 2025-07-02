@@ -1,5 +1,9 @@
-import { Disclosure, Transition } from "@headlessui/react";
-import { PlusSmallIcon } from "@heroicons/react/24/outline";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
+import { PlusIcon } from "@heroicons/react/24/outline";
 import {
   CheckCircleIcon,
   ExclamationCircleIcon,
@@ -186,49 +190,44 @@ const FAQ = () => {
   return (
     <div id="faq">
       <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:pb-40">
-        <div className="mx-auto divide-y divide-gray-900/10">
+        <div className="mx-auto">
           <div className="mx-auto max-w-4xl text-center">
             <span className="text-base font-semibold leading-7 text-primary">
               FAQs
             </span>
-            <h2 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">
+            <h2 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl dark:text-white">
               常见问题
             </h2>
           </div>
-          <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
+          <dl className="mt-10 divide-y divide-gray-900/10 dark:divide-gray-100/10">
             {faqs.map((faq) => (
-              <Disclosure as="div" key={faq.question} className="pt-6">
+              <Disclosure as="div" key={faq.question} className="py-6">
                 {({ open }) => (
                   <>
                     <dt>
-                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
+                      <DisclosureButton className="flex w-full items-start justify-between text-left text-gray-900 dark:text-gray-100 cursor-pointer">
                         <span className="text-base font-semibold leading-7">
                           {faq.question}
                         </span>
                         <span className="ml-6 flex h-7 items-center">
-                          <PlusSmallIcon
+                          <PlusIcon
                             className={`h-6 w-6 transition-transform duration-300 ${
                               open ? "rotate-45" : ""
                             }`}
                             aria-hidden="true"
                           />
                         </span>
-                      </Disclosure.Button>
+                      </DisclosureButton>
                     </dt>
-                    <Transition
-                      enter="transition duration-300 ease-out"
-                      enterFrom="transform h-0 opacity-0"
-                      enterTo="transform h-full opacity-100"
-                      leave="transition duration-300 ease-out"
-                      leaveFrom="transform h-full opacity-100"
-                      leaveTo="transform h-0 opacity-0"
+                    <DisclosurePanel
+                      as="dd"
+                      transition
+                      className="pr-12 pt-2 transition duration-300 ease-in-out data-closed:opacity-0"
                     >
-                      <Disclosure.Panel as="dd" className="pr-12 pt-2">
-                        <p className="text-base leading-7 text-gray-600">
-                          {faq.answer}
-                        </p>
-                      </Disclosure.Panel>
-                    </Transition>
+                      <p className="text-base leading-7 text-gray-600 dark:text-gray-200">
+                        {faq.answer}
+                      </p>
+                    </DisclosurePanel>
                   </>
                 )}
               </Disclosure>
